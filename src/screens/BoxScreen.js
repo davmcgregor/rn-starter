@@ -3,33 +3,42 @@ import { View, Text, StyleSheet } from 'react-native';
 
 const BoxScreen = () => {
   return (
-    <View style={styles.viewStyle}>
-      <Text style={styles.text1Style}>Child #1</Text>
-      <Text style={styles.text2Style}>Child #2</Text>
-      <Text style={styles.text3Style}>Child #3</Text>
+    <View style={styles.parentStyle}>
+      <View style={styles.viewOnestyle} />
+      <View style={styles.viewTwoparent}>
+        <View style={styles.viewTwostyle} />
+      </View>
+      <View style={styles.viewThreestyle} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  viewStyle: {
+  parentStyle: {
     borderWidth: 3,
     borderColor: 'black',
     height: 200,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
-  text1Style: {
-    borderWidth: 3,
-    borderColor: 'red',
+  viewOnestyle: {
+    backgroundColor: 'red',
+    height: 50,
+    width: 50,
   },
-  text2Style: {
-    borderWidth: 3,
-    borderColor: 'green',
-    fontSize: 18,
-    ...StyleSheet.absoluteFillObject,
+  viewTwoparent: {
+    height: 100,
+    justifyContent: 'flex-end',
   },
-  text3Style: {
-    borderWidth: 3,
-    borderColor: 'red',
+  viewTwostyle: {
+    backgroundColor: 'green',
+    height: 50,
+    width: 50,
+  },
+  viewThreestyle: {
+    backgroundColor: 'purple',
+    height: 50,
+    width: 50,
   },
 });
 
